@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SplashScreen } from './splash';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,8 +28,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <SplashScreen />
+        <div id="splash-screen" className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-500">
+          <div className="animate-pulse text-2xl font-bold">
+            Loading...
+          </div>
+        </div>
         {children}
       </body>
     </html>
   );
 }
+
+

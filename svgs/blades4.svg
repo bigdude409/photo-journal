@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180.29 543.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #be1e2d;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <g id="Blade">
+    <path class="cls-3" d="M130.6,8.22H49.59c-2.97,0-5.81,1.26-7.8,3.46L3.23,54.26c-2.19,2.42-3.13,5.71-2.56,8.92l84.2,470.77c1.75,9.76,14.79,11.92,19.58,3.23h0c.59-1.07.99-2.24,1.18-3.45L179.66,63.06c.49-3.14-.46-6.34-2.6-8.7l-38.66-42.68c-2-2.2-4.83-3.46-7.8-3.46Z"/>
+  </g>
+  <g id="RotatePivot">
+    <circle class="cls-2" cx="90.14" cy="8.22" r="7.72"/>
+  </g>
+  <g id="CenterPoint">
+    <circle class="cls-1" cx="95.52" cy="327.58" r="29.78"/>
+  </g>
+</svg>
