@@ -29,11 +29,8 @@ export function Spinner() {
 
   useEffect(() => {
     // Fallback to hide spinner after 1 seconds
-<<<<<<< HEAD
-    const timeout = setTimeout(spinner, 30000);
-=======
+
     const timeout = setTimeout(spinner, 1000);
->>>>>>> origin/main
 
     return () => {
       window.removeEventListener('load', spinner);
@@ -43,11 +40,8 @@ export function Spinner() {
 
   return (
     <div ref={spinnerRef} className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-500">
-<<<<<<< HEAD
       <div className="animate-[pulse_1s_ease-in-out_infinite] text-2xl font-bold">
-=======
-      <div className="animate-pulse text-2xl font-bold">
->>>>>>> origin/main
+
         <svg viewBox="0 0 100 100" width="100" height="100">
           <rect width="100%" height="100%" fill="#000" />
           <g transform="translate(50, 50)">
@@ -60,7 +54,6 @@ export function Spinner() {
                 to="360 0 0"
                 dur="2s"
                 repeatCount="indefinite" />
-<<<<<<< HEAD
               <animateTransform
                 attributeName="transform"
                 attributeType="XML"
@@ -71,8 +64,6 @@ export function Spinner() {
                 additive="sum"
                 calcMode="spline"
                 keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" />
-=======
->>>>>>> origin/main
             </circle>
           </g>
         </svg>
