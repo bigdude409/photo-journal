@@ -3,15 +3,16 @@
   <defs>
     <style>
       .cls-1 {
-      fill:rgb(255, 222, 222);
-      stroke:rgb(255, 222, 222);
-      stroke-miterlimit: 10;
-      opacity: 50%;
+      fill:rgb(255, 255, 255);
+      stroke:rgb(0, 0, 0);
+      stroke-width: .2;
+      <!-- stroke-miterlimit: 10; -->
+      opacity: 100%;
       }
       .cls-2 {
-      fill:rgb(255, 222, 222);
-      stroke:rgb(255, 222, 222);
-      stroke-miterlimit: 10;
+   fill:rgb(255, 255, 255);
+      stroke:rgb(0, 0, 0);
+      <!-- stroke-miterlimit: 10; -->
       opacity: 100%;
       }
     </style>
@@ -19,7 +20,7 @@
 
   <!-- <rect width="100%" height="100%" fill="blue" /> -->
   <!-- <g viewBox="0 0 1000 1000" width="200" height="200" transform="translate(500, 500) rotate(180)"> -->
-    <g id="CenterPoint" transform="translate(904.48, 672.42)">
+    <!-- <g id="CenterPoint" transform="translate(904.48, 672.42)">
       <circle class="cls-1" cx="95.52" cy="327.58" r="29.78" />
     </g>
     <g id="CenterPoint">
@@ -40,10 +41,10 @@
           to="180 90.14 8.22"
           dur="60s"
           repeatCount="indefinite" />
-      </g>
+      </g> -->
     <!-- </g> -->
 
-  </g>
+  <!-- </g> -->
   <!-- <g transform="translate(100, 100)">
     <rect width="100" height="100" class="cls-1">
       <animate

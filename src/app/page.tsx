@@ -47,7 +47,7 @@ export default function Home() {
       <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1 ref={messageRef} style={{opacity: 1}} className="text-4xl font-bold">Build what's Next!!!</h1>
 
-        <h1 ref={endMessageRef} style={{opacity: 0}} className="text-4xl font-bold text-center self-center">!</h1>
+        <h1 ref={endMessageRef} style={{opacity: 0, fontSize: "100px"}} className="text-4xl font-bold text-center self-center">!</h1>
       </div>
     </div>
   );
