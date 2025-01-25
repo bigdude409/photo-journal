@@ -20,12 +20,18 @@ export default function Home() {
       autoAlpha: 0,
       stagger: 0.05
     });
+    gsap.to(split.chars, {
+      color: "red",
+      duration: .5,
+      delay: 1, // Start after the initial animation
+      stagger: 0.05
+    });
   }, []);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 ref={headingRef} className="text-4xl font-bold">Build what's next!!!</h1>
+        <h1 ref={headingRef} className="text-4xl font-bold">Build what's Next!!!</h1>
       </div>
     </div>
   );
