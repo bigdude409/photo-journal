@@ -28,7 +28,7 @@ export function Spinner() {
 
 
   useEffect(() => {
-  const timeout = setTimeout(spinner, 50);
+  const timeout = setTimeout(spinner, 2000);
 
     return () => {
       // window.removeEventListener('load', spinner);

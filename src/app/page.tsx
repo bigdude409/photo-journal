@@ -16,18 +16,24 @@ export default function Home() {
     var split = new SplitText(headingRef.current, { type: "chars" });
     //now animate each character into place from 100px above, fading in:
     tl.from(split.chars, {
-      duration: .5,
-      y: 75,
+      duration: 1,
+      y: -75,
       autoAlpha: 0,
       stagger: 0.05,
-      ease: "power2.in"
-    });
+      ease: "elastic.out(1, 0.7)"
+    }, "+=2.25");
     tl.to(split.chars, {
       color: "orange",
       duration: .25,
       stagger: 0.05,
       // ease: "power4.in"
-    }, "-=.25");
+    }, "-=.5");
+    tl.to(split.chars, {
+      opacity: 0,
+      duration: .25,
+      stagger: 0.05,
+      // ease: "power4.in"
+    }, "+=.5");
   }, []);
 
   return (
