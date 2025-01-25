@@ -24,16 +24,14 @@ export function Spinner() {
   // Hide spinner when the page is fully loaded
   const spinnerRef = useRef<HTMLDivElement>(null);
   const spinner = () => hideSpinner(spinnerRef.current);
-  // window.addEventListener('load', spinner);
+ 
 
 
   useEffect(() => {
-    // Fallback to hide spinner after 1 seconds
-
-    const timeout = setTimeout(spinner, 2000);
+  const timeout = setTimeout(spinner, 50);
 
     return () => {
-      window.removeEventListener('load', spinner);
+      // window.removeEventListener('load', spinner);
       clearTimeout(timeout);
     };
   }, []);
