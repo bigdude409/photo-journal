@@ -9,11 +9,12 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Home() {
-  const headingRef = useRef(null);
+  const messageRef = useRef(null);
+  const endMessageRef = useRef(null);
   const tl = gsap.timeline();
 
   useGSAP(() => {
-    var split = new SplitText(headingRef.current, { type: "chars" });
+    var split = new SplitText(messageRef.current, { type: "chars" });
     //now animate each character into place from 100px above, fading in:
     tl.from(split.chars, {
       duration: 1,
@@ -34,12 +35,19 @@ export default function Home() {
       stagger: 0.05,
       // ease: "power4.in"
     }, "+=.5");
+    tl.to(endMessageRef.current, {
+      opacity: 1,
+      duration: .25,
+      ease: "power4.in"
+    }, "+=.25");
   }, []);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 ref={headingRef} style={{opacity: 1}} className="text-4xl font-bold">Build what's Next!!!</h1>
+        <h1 ref={messageRef} style={{opacity: 1}} className="text-4xl font-bold">Build what's Next!!!</h1>
+
+        <h1 ref={endMessageRef} style={{opacity: 0}} className="text-4xl font-bold text-center self-center">!</h1>
       </div>
     </div>
   );
