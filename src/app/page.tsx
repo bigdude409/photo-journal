@@ -4,14 +4,25 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Spinner } from "./spinner";
+import { useRouter } from "next/navigation";
+
 gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Home() {
-  const container = useRef(null);
+  const [isAnimComplete, setIsAnimComplete] = useState(false);
 
+  const container = useRef(null);
+  const router = useRouter();
   const tl = gsap.timeline();
+
+  useEffect(() => {
+    // Ensure the router is ready before navigating
+    if (isAnimComplete) {
+      router.push('/blog');
+    }
+  }, [isAnimComplete]); // Include router.isReady in the dependency array
 
   useGSAP(() => {
     var split = new SplitText('.message', { type: "chars" });
@@ -41,9 +52,9 @@ export default function Home() {
       ease: "power4.in"
     }, "+=.25");
     tl.to({}, { // Empty tween for delay
-      duration: 0.5,
+      duration: 1.0,
       onComplete: () => {
-        window.location.href = '/blog';
+        setIsAnimComplete(true);
       }
     });
   }, { scope: container });

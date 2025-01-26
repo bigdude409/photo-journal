@@ -57,7 +57,7 @@ const blogImages: BlogImage[] = [
       exposureTime: "1/125",
       fNumber: "1.8",
       iso: 400,
-      focalLength: "85mm",
+      focalLength: "105mm",
       dateTaken: "2024-03-18"
     }
   },
@@ -81,7 +81,7 @@ const blogImages: BlogImage[] = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-4xl font-bold mb-8">Bud's trip to Pismo Beach</h1>
+      <h1 className="text-4xl font-bold mb-8">Bud's Trip to Pismo Beach</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogImages.map((image) => (
