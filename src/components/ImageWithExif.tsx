@@ -11,6 +11,7 @@ interface ExifData {
     iso?: number;
     focalLength?: string;
     dateTaken?: string;
+    location?: string;
 }
 
 interface ImageWithExifProps {
