@@ -66,7 +66,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     />
                     <svg
                         x="10"
-                        y="calc(100% - 27px)"  // Adjust y position to bottom left, considering the height of the SVG
+                        y="10"  // Adjust y position to bottom left, considering the height of the SVG
                         width="24"
                         height="24"
                         viewBox="0 0 30 30"
@@ -77,13 +77,13 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     </svg>
                     <text
                         x="20"
-                        y="100%"
+                        y="20"
                         fill="#FFD700"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
                         dominantBaseline="hanging"
                     >
-                        <tspan x="32" dy="-20">{exifData.make} {exifData.model}</tspan>
+                        <tspan x="32" dy="-4">{exifData.make} {exifData.model}</tspan>
 
                     </text>
                     <text
