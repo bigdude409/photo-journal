@@ -33,7 +33,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 { 
                     opacity: 1, 
                     duration: 0.25,
-                    ease: 'power2.in'
+                    ease: 'power2.inOut'
                 });
         }
     }, []);

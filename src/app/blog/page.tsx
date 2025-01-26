@@ -4,6 +4,8 @@
 import { ImageWithExif } from "@/components/ImageWithExif";
 
 import { ExifData } from "@/components/ImageWithExif";
+import { gsap } from 'gsap';
+import { useGSAP } from "@gsap/react";
 
 interface BlogImage {
   id: number;
@@ -77,6 +79,9 @@ const blogImages: BlogImage[] = [
 ];
 
 export default function BlogPage() {
+  useGSAP(() => {
+    gsap.from("h1", { opacity: 0, duration: .25, ease: "power2.inOut" });
+  }, []);
   return (
     <main className="min-h-screen p-8">
       <h1 className="text-4xl font-normal mb-8 ml-8" style={{ color: '#FFD700' }}>Bud's Offroading Adventures</h1>
