@@ -35,11 +35,17 @@ export default function Home() {
       ease: "elastic.out(1, 0.7)"
     }, "+=2.25");
     tl.to(split.chars, {
-      color: "#FFD700", // Gold color, often used in stars title sequences
+      color: "#888", // Gold color, often used in stars title sequences
       duration: .25,
       stagger: 0.05,
       // ease: "power4.in"
     }, "-=.5");
+    tl.to(split.chars, {
+      color: "white", // Gold color, often used in stars title sequences
+      duration: .25,
+      stagger: 0.05,
+      // ease: "power4.in"
+    }, "-=.75");
     tl.to(split.chars, {
       opacity: 0,
       duration: .25,
