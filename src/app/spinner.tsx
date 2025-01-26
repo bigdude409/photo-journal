@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function hideSpinner(spinner: HTMLDivElement | null) {
  
@@ -25,15 +27,14 @@ export function Spinner() {
   const spinnerRef = useRef<HTMLDivElement>(null);
   const spinner = () => hideSpinner(spinnerRef.current);
  
+  const tl = gsap.timeline();
 
-
-  useEffect(() => {
-  const timeout = setTimeout(spinner, 2000);
-
-    return () => {
-      // window.removeEventListener('load', spinner);
-      clearTimeout(timeout);
-    };
+  useGSAP(() => {
+    tl.to(spinnerRef.current, {
+      opacity: 0,
+      duration: 2,
+      ease: "power4.in"
+    });
   }, []);
 
   return (
@@ -49,14 +50,14 @@ export function Spinner() {
                 type="rotate"
                 from="0 0 0"
                 to="360 0 0"
-                dur="2s"
+                dur="1s"
                 repeatCount="indefinite" />
               <animateTransform
                 attributeName="transform"
                 attributeType="XML"
                 type="scale"
                 values="1;0.5;1"
-                dur="2s"
+                dur="1s"
                 repeatCount="indefinite"
                 additive="sum"
                 calcMode="spline"
