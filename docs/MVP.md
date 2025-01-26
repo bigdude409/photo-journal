@@ -7,8 +7,7 @@
 * Next.js
 * React
 * Tailwind
-* Motion
-* Rive
+* GSAP
 * Mongodb
 * Node
 

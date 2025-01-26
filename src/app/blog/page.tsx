@@ -79,11 +79,11 @@ const blogImages: BlogImage[] = [
 
 export default function BlogPage() {
   useGSAP(() => {
-    gsap.from("h1", { opacity: 0, duration: .25, ease: "power2.inOut" });
+    gsap.from("h1", { opacity: 0, duration: .5, ease: "power2.inOut" });
   }, []);
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-4xl font-normal mb-8 ml-8" style={{ color: '#FFD700' }}>Bud's Offroading Adventures</h1>
+      <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700'}}>BUD'S OFFROADING ADVENTURES</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogImages.map((image) => (
