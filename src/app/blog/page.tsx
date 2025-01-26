@@ -15,6 +15,7 @@ interface BlogImage {
     iso?: number;
     focalLength?: string;
     dateTaken?: string;
+    location?: string;
   };
 }
 
@@ -30,7 +31,8 @@ const blogImages: BlogImage[] = [
       fNumber: "2.8",
       iso: 100,
       focalLength: "70mm",
-      dateTaken: "2024-03-19"
+      dateTaken: "2024-03-19",
+      location: "Glamis Dunes, CA"
     }
   },
   {
@@ -44,7 +46,8 @@ const blogImages: BlogImage[] = [
       fNumber: "1.8",
       iso: 400,
       focalLength: "85mm",
-      dateTaken: "2024-03-18"
+      dateTaken: "2024-03-18",
+      location: "Pismo Beach, CA"
     }
   },
   {
@@ -58,7 +61,8 @@ const blogImages: BlogImage[] = [
       fNumber: "1.8",
       iso: 400,
       focalLength: "105mm",
-      dateTaken: "2024-03-18"
+      dateTaken: "2024-03-18",
+      location: "Glamis Dunes, CA"
     }
   },
   {
@@ -72,7 +76,8 @@ const blogImages: BlogImage[] = [
       fNumber: "1.8",
       iso: 400,
       focalLength: "85mm",
-      dateTaken: "2024-03-18"
+      dateTaken: "2024-03-18",
+      location: "Pismo Beach, CA"
     }
   },
   // Add more images as needed
@@ -81,7 +86,7 @@ const blogImages: BlogImage[] = [
 export default function BlogPage() {
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-4xl font-bold mb-8">Bud's Trip to Pismo Beach</h1>
+      <h1 className="text-4xl font-normal mb-8">Bud's Offroading Adventures</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogImages.map((image) => (

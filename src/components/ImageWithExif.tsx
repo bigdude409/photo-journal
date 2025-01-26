@@ -64,11 +64,11 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fill="rgba(0,0,0,0.5)"
                     />
                     <text
-                        x="20"
+                        x="10"
                         y="100%"
                         fill="#FFD700"
-                        fontFamily="Arial"
-                        fontSize="12"
+                        fontFamily="var(--font-geist-mono)"
+                        fontSize="11"
                         dominantBaseline="hanging"
                     >
                         <tspan x="20" dy="-20">{exifData.make} {exifData.model}</tspan>
@@ -80,22 +80,22 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         width="100%"
                         // y="100"
                         fill="#FFD700"
-                        fontFamily="Arial"
-                        fontSize="12"
+                        fontFamily="var(--font-geist-mono)"
+                        fontSize="11"
                         dominantBaseline="hanging"
                     >
-                        <tspan dx="-200" dy="-20">{exifData.exposureTime}s</tspan>
-                        <tspan dx="20" dy="0">f/{exifData.fNumber}</tspan>
-                        <tspan dx="20" dy="0">{exifData.iso} ISO</tspan>
-                        <tspan dx="20" dy="0">{exifData.focalLength}</tspan>
+                        <tspan dx="-170" dy="-20">{exifData.exposureTime}s</tspan>
+                        <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
+                        <tspan dx="10" dy="0">{exifData.iso} ISO</tspan>
+                        <tspan dx="10" dy="0">{exifData.focalLength}</tspan>
                     </text>
                 </svg>
 
             </div>
-            <div style={{ color: '#FFD700', fontSize: '12px' }} className=" bottom-0 right-0 p-2 text-right text-white">
+            <div style={{ color: '#FFD700', fontSize: '14px' }} className=" bottom-0 right-0 p-2 text-right text-white">
                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                   <div>Pismo Beach, CA</div>
-                   <div>{exifData.dateTaken}</div>
+                   <div>{exifData.location}</div>
+                   <div>{exifData.dateTaken ? new Date(exifData.dateTaken).toLocaleDateString() : 'Unknown Date'}</div>
                </div>
             </div>
 
