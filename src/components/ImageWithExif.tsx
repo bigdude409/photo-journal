@@ -87,7 +87,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
 
                     </text>
                     <text
-                        x="calc(95%)"
+                        x="calc(50%)"
                         y="100%"
                         width="100%"
                         // y="100"
@@ -95,8 +95,9 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
                         dominantBaseline="hanging"
+                        textAnchor="middle"
                     >
-                        <tspan dx="-170" dy="-20">{exifData.exposureTime}s</tspan>
+                        <tspan dx="0" dy="-20">{exifData.exposureTime}s</tspan>
                         <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
                         <tspan dx="0" dy="0" fontSize="7">ISO</tspan>
