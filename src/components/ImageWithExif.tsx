@@ -90,10 +90,10 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         x="calc(50%)"
                         y="100%"
                         width="100%"
-                        // y="100"
                         fill="#FFD700"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
+                        fontWeight="bold"  // Added bold font style
                         dominantBaseline="hanging"
                         textAnchor="middle"
                     >
