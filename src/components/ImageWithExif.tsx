@@ -97,12 +97,13 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         dominantBaseline="hanging"
                         textAnchor="middle"
                     >
-                        <tspan dx="0" dy="-20">{exifData.exposureTime}s</tspan>
+                        <tspan dx="0" dy="-20">{exifData.exposureTime}</tspan>
+                        <tspan dx="0" dy="0" fontSize="7">S</tspan>
                         <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
                         <tspan dx="0" dy="0" fontSize="7">ISO</tspan>
                         <tspan dx="10" dy="0">{exifData.focalLength}</tspan>
-                        <tspan dx="0" dy="0" fontSize="7">mm</tspan>
+                        <tspan dx="0" dy="0" fontSize="7">MM</tspan>
                     </text>
                 </svg>
 
