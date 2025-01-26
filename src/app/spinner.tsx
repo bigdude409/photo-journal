@@ -4,28 +4,11 @@ import { useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-export function hideSpinner(spinner: HTMLDivElement | null) {
- 
-  if (spinner) {
-    spinner.animate(
-      [
-        { opacity: 1 },
-        { opacity: 0 }
-      ],
-      {
-        duration: 500,
-        easing: 'ease-out',
-        fill: 'forwards'
-      }
-    );
-  }
-}
 
 export function Spinner() {
   // Loads too quick to see the spinner
   // Hide spinner when the page is fully loaded
   const spinnerRef = useRef<HTMLDivElement>(null);
-  const spinner = () => hideSpinner(spinnerRef.current);
  
   const tl = gsap.timeline();
 
@@ -57,7 +40,7 @@ export function Spinner() {
                 attributeType="XML"
                 type="scale"
                 values="1;0.5;1"
-                dur="1s"
+                dur="2s"
                 repeatCount="indefinite"
                 additive="sum"
                 calcMode="spline"
