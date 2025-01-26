@@ -71,8 +71,7 @@ const blogImages: BlogImage[] = [
       fNumber: "1.8",
       iso: 400,
       focalLength: "85",
-      dateTaken: "2024-03-18",
-      location: "Pismo Beach, CA"
+      dateTaken: "2024-03-18"
     }
   },
   // Add more images as needed
