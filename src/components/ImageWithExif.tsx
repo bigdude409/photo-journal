@@ -60,22 +60,34 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
         <rect
           width="100%"
           height="100%"
-          fill="rgba(0,0,0,0.7)"
+          fill="rgba(0,0,0,0.5)"
         />
         <text
           x="20"
-          y="40"
+          y="100%"
           fill="#FFD700"
           fontFamily="Arial"
-          fontSize="14"
+          fontSize="12"
+           dominantBaseline="hanging"
         >
-          <tspan x="20" dy="0">Camera: {exifData.make} {exifData.model}</tspan>
-          <tspan x="20" dy="25">Exposure: {exifData.exposureTime}s</tspan>
-          <tspan x="20" dy="25">Aperture: f/{exifData.fNumber}</tspan>
-          <tspan x="20" dy="25">ISO: {exifData.iso}</tspan>
-          <tspan x="20" dy="25">Focal Length: {exifData.focalLength}</tspan>
-          <tspan x="20" dy="25">Date: {exifData.dateTaken}</tspan>
+          <tspan x="20" dy="-20">{exifData.make} {exifData.model}</tspan>
+         
         </text>
+        <text
+            x="calc(95%)"
+            y="100%"
+            width="100%"
+            // y="100"
+            fill="#FFD700"
+            fontFamily="Arial"
+            fontSize="12"
+            dominantBaseline="hanging"
+          >
+            <tspan dx="-200" dy="-20">{exifData.exposureTime}s</tspan>
+            <tspan dx="20" dy="0">f/{exifData.fNumber}</tspan>
+            <tspan dx="20" dy="0">{exifData.iso} ISO</tspan>
+            <tspan dx="20" dy="0">{exifData.focalLength}</tspan>
+          </text>
       </svg>
     </div>
   );
