@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Spinner } from './spinner';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,13 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      {children}
+    <html lang="en" className="dark:bg-gray-900 bg-white">
+      <body className="${geistSans.variable} ${geistMono.variable} antialiased dark:bg-gray-900 bg-white transition-colors duration-300">
+        {children}
       </body>
     </html>
   );
