@@ -64,6 +64,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         height="100%"
                         fill="rgba(0,0,0,0.5)"
                     />
+                    
                     <text
                         x="10"
                         y="100%"
@@ -87,8 +88,10 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     >
                         <tspan dx="-170" dy="-20">{exifData.exposureTime}s</tspan>
                         <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
-                        <tspan dx="10" dy="0">{exifData.iso} ISO</tspan>
+                        <tspan dx="10" dy="0">{exifData.iso}</tspan>
+                        <tspan dx="0" dy="0" fontSize="7">ISO</tspan>
                         <tspan dx="10" dy="0">{exifData.focalLength}</tspan>
+                        <tspan dx="0" dy="0" fontSize="7">mm</tspan>
                     </text>
                 </svg>
 

@@ -22,8 +22,8 @@ const blogImages: BlogImage[] = [
       model: "EOS R5",
       exposureTime: "1/250",
       fNumber: "2.8",
-      iso: 100,
-      focalLength: "70mm",
+      iso: 18000,
+      focalLength: "70",
       dateTaken: "2024-03-19",
       location: "Glamis Dunes, CA"
     }
@@ -37,8 +37,8 @@ const blogImages: BlogImage[] = [
       model: "A7IV",
       exposureTime: "1/125",
       fNumber: "1.8",
-      iso: 400,
-      focalLength: "85mm",
+      iso: 50,
+      focalLength: "85",
       dateTaken: "2024-03-18",
       location: "Pismo Beach, CA"
     }
@@ -53,7 +53,7 @@ const blogImages: BlogImage[] = [
       exposureTime: "1/125",
       fNumber: "1.8",
       iso: 400,
-      focalLength: "105mm",
+      focalLength: "105",
       dateTaken: "2024-03-18",
       location: "Glamis Dunes, CA"
     }
@@ -68,7 +68,7 @@ const blogImages: BlogImage[] = [
       exposureTime: "1/125",
       fNumber: "1.8",
       iso: 400,
-      focalLength: "85mm",
+      focalLength: "85",
       dateTaken: "2024-03-18",
       location: "Pismo Beach, CA"
     }
