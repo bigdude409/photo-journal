@@ -21,16 +21,20 @@ interface ImageWithExifProps {
     exifData: ExifData;
 }
 
-
 export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
     const overlayRef = useRef<SVGSVGElement>(null);
     const [isHovering, setIsHovering] = useState(false);
 
-    const imageRef = useRef<HTMLImageElement>(null);
+    const containerRef = useRef<HTMLImageElement>(null);
 
     useGSAP(() => {
-        if (imageRef.current) {
-            gsap.to(imageRef.current,{ opacity: 1, duration: 0.5 });
+        if (containerRef.current) {
+            gsap.to(containerRef.current, 
+                { 
+                    opacity: 1, 
+                    duration: 0.25,
+                    ease: 'power2.in'
+                });
         }
     }, []);
 
@@ -53,18 +57,17 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
     }, [isHovering]);
 
     return (
-        <>
+        <div style={{ opacity: 0 }}
+            ref={containerRef}>
             <div
                 className="relative inline-block w-full"
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
             >
                 <img
-                    ref={imageRef}
                     src={src}
                     alt={alt}
                     className="w-full h-auto object-cover aspect-[4/3] rounded-xl"
-                    style={{ opacity: 0 }}
                 />
                 <svg
                     ref={overlayRef}
@@ -133,6 +136,6 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 </div>
             </div>
 
-        </>
+        </div>
     );
 }; 
