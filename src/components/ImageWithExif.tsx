@@ -95,7 +95,13 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
             </div>
             <div style={{ color: '#FFD700', fontSize: '14px' }} className=" bottom-0 right-0 p-2 text-right text-white">
                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                   <div>{exifData.location}</div>
+                   <div style={{ display: 'flex', alignItems: 'center' }}>
+                       
+                       <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#FFD700"/>
+                       </svg>
+                       <div>{exifData.location}</div>
+                   </div>
                    <div>{exifData.dateTaken ? new Date(exifData.dateTaken).toLocaleDateString() : 'Unknown Date'}</div>
                </div>
             </div>
