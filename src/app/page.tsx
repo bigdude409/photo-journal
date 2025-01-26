@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Home() {
   const container = useRef(null);
-  
+
   const tl = gsap.timeline();
 
   useGSAP(() => {
@@ -40,31 +40,37 @@ export default function Home() {
       duration: .25,
       ease: "power4.in"
     }, "+=.25");
-  }, {scope: container});
+    tl.to({}, { // Empty tween for delay
+      duration: 0.5,
+      onComplete: () => {
+        window.location.href = '/blog';
+      }
+    });
+  }, { scope: container });
 
   return (
     <>
-    <Spinner />
-    <div ref={container} className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        
-        <Image
-          className="end dark:invert self-center "
-          style={{opacity: 0}}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        
-        <h1 
-          style={{opacity: 1, textTransform: "uppercase"}} 
-          className="message text-4xl">Build What's Next...
-        </h1>
+      <Spinner />
+      <div ref={container} className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
+          <Image
+            className="end dark:invert self-center "
+            style={{ opacity: 0 }}
+            src="/next.svg"
+            alt="Next.js logo"
+            width={180}
+            height={38}
+            priority
+          />
+
+          <h1
+            style={{ opacity: 1, textTransform: "uppercase" }}
+            className="message text-4xl">Build What's Next...
+          </h1>
+
+        </div>
       </div>
-    </div>
     </>
   );
 }
