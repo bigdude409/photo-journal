@@ -3,20 +3,13 @@
 // Correct the import path or ensure the module exists at the specified path
 import { ImageWithExif } from "@/components/ImageWithExif";
 
+import { ExifData } from "@/components/ImageWithExif";
+
 interface BlogImage {
   id: number;
   src: string;
   alt: string;
-  exifData: {
-    make?: string;
-    model?: string;
-    exposureTime?: string;
-    fNumber?: string;
-    iso?: number;
-    focalLength?: string;
-    dateTaken?: string;
-    location?: string;
-  };
+  exifData: ExifData;
 }
 
 const blogImages: BlogImage[] = [
