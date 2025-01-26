@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import { useEffect, useRef } from "react";
-
+import { Spinner } from "./spinner";
 gsap.registerPlugin(useGSAP, SplitText);
 
 export default function Home() {
@@ -43,6 +43,8 @@ export default function Home() {
   }, {scope: container});
 
   return (
+    <>
+    <Spinner />
     <div ref={container} className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         
@@ -63,5 +65,6 @@ export default function Home() {
 
       </div>
     </div>
+    </>
   );
 }
