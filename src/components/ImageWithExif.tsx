@@ -52,7 +52,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 <img
                     src={src}
                     alt={alt}
-                    className="w-full h-auto object-cover aspect-[4/3]"
+                    className="w-full h-auto object-cover aspect-[4/3] rounded-xl"
                 />
                 <svg
                     ref={overlayRef}
