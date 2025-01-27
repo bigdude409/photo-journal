@@ -82,7 +82,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     />
                     <svg
                         x="10"
-                        y="10"  // Adjust y position to bottom left, considering the height of the SVG
+                        y="10"
                         width="24"
                         height="24"
                         viewBox="0 0 30 30"
@@ -97,23 +97,23 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fill="#FFD700"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
-                        dominantBaseline="hanging"
+                        // dominantBaseline="hanging"
                     >
-                        <tspan x="32" dy="-4">{exifData.make} {exifData.model}</tspan>
+                        <tspan dx="15" dy="5">{exifData.make} {exifData.model}</tspan>
 
                     </text>
                     <text
-                        x="calc(50%)"
+                        x="50%"
                         y="100%"
                         width="100%"
                         fill="#FFD700"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
-                        fontWeight="bold"  // Added bold font style
-                        dominantBaseline="hanging"
+                        fontWeight="bold"
+                        // dominantBaseline="hanging"
                         textAnchor="middle"
                     >
-                        <tspan dx="0" dy="-20">{exifData.shutterSpeed}</tspan>
+                        <tspan dx="0" dy="-15">{exifData.shutterSpeed}</tspan>
                         <tspan dx="0" dy="0" fontSize="7">S</tspan>
                         <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
