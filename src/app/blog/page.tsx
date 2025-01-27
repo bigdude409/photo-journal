@@ -85,7 +85,7 @@ export default function BlogPage() {
     <main className="min-h-screen p-8">
       <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700'}}>BUD'S OFFROADING ADVENTURES</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogImages.map((image) => (
           <div key={image.id} className="relative group">
             <ImageWithExif

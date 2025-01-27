@@ -72,8 +72,8 @@ export default function Home() {
         <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
           <Image
-            className="end dark:invert self-center "
-            style={{ opacity: 0 }}
+            className="end dark:invert self-center"
+            style={{ opacity: 0, width: "auto" }}
             src="/next.svg"
             alt="Next.js logo"
             width={180}
