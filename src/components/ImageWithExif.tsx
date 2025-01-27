@@ -13,6 +13,7 @@ export interface ExifData {
     focalLength?: string;
     dateTaken?: string;
     location?: string;
+    shutterSpeed?: string;
 }
 
 interface ImageWithExifProps {
@@ -112,7 +113,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         dominantBaseline="hanging"
                         textAnchor="middle"
                     >
-                        <tspan dx="0" dy="-20">{exifData.exposureTime}</tspan>
+                        <tspan dx="0" dy="-20">{exifData.shutterSpeed}</tspan>
                         <tspan dx="0" dy="0" fontSize="7">S</tspan>
                         <tspan dx="10" dy="0">f/{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
@@ -134,7 +135,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         )}
                         <div>{exifData.location}</div>
                     </div>
-                    <div>{exifData.dateTaken ? new Date(exifData.dateTaken).toLocaleDateString() : 'Unknown Date'}</div>
+                    <div>{exifData.dateTaken ? new Date(exifData.dateTaken).toLocaleDateString() : ''}</div>
                 </div>
             </div>
 

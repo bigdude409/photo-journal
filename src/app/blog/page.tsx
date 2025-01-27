@@ -22,7 +22,7 @@ const blogImages: BlogImage[] = [
     exifData: {
       make: "Canon",
       model: "EOS 77D",
-      exposureTime: "1/250",
+      shutterSpeed: "1/250",
       fNumber: "2.8",
       iso: 18000,
       focalLength: "70",
@@ -37,7 +37,7 @@ const blogImages: BlogImage[] = [
     exifData: {
       make: "Nikon",
       model: "Z6",
-      exposureTime: "1/259",
+      shutterSpeed: "1/259",
       fNumber: "5.6",
       iso: 50,
       focalLength: "85",
@@ -52,7 +52,7 @@ const blogImages: BlogImage[] = [
     exifData: {
       make: "Nikon",
       model: "Z6",
-      exposureTime: "1/125",
+      shutterSpeed: "1/125",
       fNumber: "1.8",
       iso: 400,
       focalLength: "105",
@@ -67,7 +67,7 @@ const blogImages: BlogImage[] = [
     exifData: {
       make: "Canon",
       model: "EOS 77D",
-      exposureTime: "1/125",
+      shutterSpeed: "1/125",
       fNumber: "1.8",
       iso: 400,
       focalLength: "85",
