@@ -30,9 +30,9 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
 
     useGSAP(() => {
         if (containerRef.current) {
-            gsap.to(containerRef.current, 
-                { 
-                    opacity: 1, 
+            gsap.to(containerRef.current,
+                {
+                    opacity: 1,
                     duration: 0.25,
                     ease: 'power2.inOut'
                 });
@@ -78,6 +78,14 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     <rect
                         width="100%"
                         height="100%"
+                        fill="rgba(0,0,0,0.0)"
+                    />
+                    <rect
+                        x="5"
+                        y="10"
+                        width="120"
+                        height="22"
+                        rx="8"
                         fill="rgba(0,0,0,0.5)"
                     />
                     <svg
@@ -97,11 +105,20 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fill="#FFD700"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
-                        // dominantBaseline="hanging"
+                    // dominantBaseline="hanging"
                     >
                         <tspan dx="15" dy="5">{exifData.make} {exifData.model}</tspan>
 
                     </text>
+                    <rect
+                        x="50%"
+                        y="calc(100% - 32px)"
+                        width="250"
+                        height="25"
+                        rx="8"
+                        transform="translate(-125, 0)"
+                        fill="rgba(0,0,0,0.5)"
+                    />
                     <text
                         x="50%"
                         y="100%"

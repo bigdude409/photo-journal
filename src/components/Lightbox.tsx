@@ -1,7 +1,8 @@
 'use client';
 
 import { ExifData } from "./ImageWithExif";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 interface LightboxProps {
   image: {
@@ -14,28 +15,75 @@ interface LightboxProps {
 
 export function Lightbox({ image, onClose }: LightboxProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        handleClose();
       }
     };
 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, [onClose]);
+  }, []);
+
+  useEffect(() => {
+    if (image) {
+      // Animate Overlay
+      gsap.fromTo(
+        overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: 'power2.out' }
+      );
+
+      // Animate Content
+      gsap.fromTo(
+        contentRef.current,
+        { scale: 0.3, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
+      );
+    }
+  }, [image]);
+
+  const handleClose = () => {
+    if (overlayRef.current && contentRef.current) {
+      // Animate Overlay Out
+      gsap.to(overlayRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.in',
+      });
+
+      // Animate Content Out
+      gsap.to(contentRef.current, {
+        scale: 0.5,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'power2.in',
+        onComplete: onClose,
+      });
+    } else {
+      onClose();
+    }
+  };
 
   if (!image) return null;
 
   return (
     <div
+      ref={overlayRef}
       className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
-      onClick={onClose}
+      onClick={handleClose}
     >
-      <div className="relative max-w-7xl mx-auto p-4">
+      <div
+        ref={contentRef}
+        className="relative max-w-7xl mx-auto p-4"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
-          onClick={onClose}
+          onClick={handleClose}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className="absolute top-4 right-4 z-50"
@@ -68,7 +116,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               y="10"
               width="120"
               height="22"
-              rx="4"
+              rx="8"
               fill="rgba(0,0,0,0.5)"
             />
             <svg
@@ -97,7 +145,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               y="calc(100% - 32px)"
               width="250"
               height="25"
-              rx="4"
+              rx="8"
               transform="translate(-125, 0)"
               fill="rgba(0,0,0,0.5)"
             />
