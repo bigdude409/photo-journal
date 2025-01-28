@@ -6,6 +6,8 @@ import { ImageWithExif } from "@/components/ImageWithExif";
 import { ExifData } from "@/components/ImageWithExif";
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { useState } from 'react';
+import { Lightbox } from '@/components/Lightbox';
 
 interface BlogImage {
   id: number;
@@ -78,16 +80,25 @@ const blogImages: BlogImage[] = [
 ];
 
 export default function BlogPage() {
+  const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
+
   useGSAP(() => {
     gsap.from("h1", { opacity: 0, duration: .5, ease: "power2.inOut" });
   }, []);
+
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700'}}>BUD'S OFFROADING ADVENTURES</h1>
+      <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700'}}>
+        BUD'S OFFROADING ADVENTURES
+      </h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogImages.map((image) => (
-          <div key={image.id} className="relative group">
+          <div 
+            key={image.id} 
+            className="relative group cursor-pointer"
+            onClick={() => setSelectedImage(image)}
+          >
             <ImageWithExif
               src={image.src}
               alt={image.alt}
@@ -96,6 +107,11 @@ export default function BlogPage() {
           </div>
         ))}
       </div>
+
+      <Lightbox 
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+      />
     </main>
   );
 } 
