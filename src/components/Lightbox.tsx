@@ -143,10 +143,10 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             <rect
               x="50%"
               y="calc(100% - 32px)"
-              width="250"
+              width="200"
               height="25"
               rx="8"
-              transform="translate(-125, 0)"
+              transform="translate(-100, 0)"
               fill="rgba(0,0,0,0.5)"
             />
             <text

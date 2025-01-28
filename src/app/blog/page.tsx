@@ -64,7 +64,99 @@ const blogImages: BlogImage[] = [
   },
   {
     id: 4,
+    src: "/photos/photo1.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },
+  {
+    id: 5,
     src: "/photos/photo2.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 6,
+    src: "/photos/photo2.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 7,
+    src: "/photos/photo2.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 8,
+    src: "/photos/photo1.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 9,
+    src: "/photos/photo1.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 10,
+    src: "/photos/photo2.jpg",
+    alt: "Portrait photo",
+    exifData: {
+      make: "Canon",
+      model: "EOS 77D",
+      shutterSpeed: "1/125",
+      fNumber: "1.8",
+      iso: 400,
+      focalLength: "85",
+      dateTaken: "2024-03-18"
+    }
+  },{
+    id: 11,
+    src: "/photos/photo1.jpg",
     alt: "Portrait photo",
     exifData: {
       make: "Canon",
