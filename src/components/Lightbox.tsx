@@ -1,7 +1,7 @@
 'use client';
 
 import { ExifData } from "./ImageWithExif";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface LightboxProps {
   image: {
@@ -13,6 +13,8 @@ interface LightboxProps {
 }
 
 export function Lightbox({ image, onClose }: LightboxProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -27,17 +29,22 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   if (!image) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
       onClick={onClose}
     >
       <div className="relative max-w-7xl mx-auto p-4">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white hover:text-gray-300 z-50"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="absolute top-4 right-4 z-50"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24">
+            <g transform="rotate(45, 12, 12)">
+              <circle cx="12" cy="12" r="8" fill="#888" fillOpacity="0.5"  />
+              <path d="M7 12 h 10 m -5 -5 v 10" stroke="#888" strokeWidth="2" strokeLinecap="round" className="hover:stroke-[#FFD700]"/>
+            </g>
           </svg>
         </button>
         <div className="relative">
@@ -56,7 +63,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               height="100%"
               fill="rgba(0,0,0,0.0)"
             />
-                        <rect
+            <rect
               x="5"
               y="10"
               width="120"
