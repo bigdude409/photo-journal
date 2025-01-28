@@ -1,8 +1,7 @@
 'use client';
 
 import { ExifData } from "./ImageWithExif";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from 'gsap';
+import { useEffect } from "react";
 
 interface LightboxProps {
   image: {
@@ -14,9 +13,6 @@ interface LightboxProps {
 }
 
 export function Lightbox({ image, onClose }: LightboxProps) {
-  const overlayRef = useRef<SVGSVGElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -35,11 +31,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
       className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
       onClick={onClose}
     >
-      <div 
-        className="relative max-w-7xl mx-auto p-4"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
+      <div className="relative max-w-7xl mx-auto p-4">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-white hover:text-gray-300 z-50"
@@ -56,13 +48,20 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             onClick={(e) => e.stopPropagation()}
           />
           <svg
-            ref={overlayRef}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${isHovering ? 'opacity-100' : 'opacity-0'}`}
+            className="absolute inset-0 w-full h-full"
             xmlns="http://www.w3.org/2000/svg"
           >
             <rect
               width="100%"
               height="100%"
+              fill="rgba(0,0,0,0.0)"
+            />
+                        <rect
+              x="5"
+              y="10"
+              width="120"
+              height="22"
+              rx="4"
               fill="rgba(0,0,0,0.5)"
             />
             <svg
@@ -76,6 +75,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             >
               <path fill="#FFD700" d="M21 6h-4.18C16.4 4.84 14.98 4 13.5 4c-1.48 0-2.9.84-3.32 2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7.5 11c-2.49 0-4.5-2.01-4.5-4.5S11.01 8 13.5 8s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5S12.12 15 13.5 15s2.5-1.12 2.5-2.5S14.88 10 13.5 10z" />
             </svg>
+
             <text
               x="20"
               y="20"
@@ -85,6 +85,15 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             >
               <tspan dx="15" dy="5">{image.exifData.make} {image.exifData.model}</tspan>
             </text>
+            <rect
+              x="50%"
+              y="calc(100% - 32px)"
+              width="250"
+              height="25"
+              rx="4"
+              transform="translate(-125, 0)"
+              fill="rgba(0,0,0,0.5)"
+            />
             <text
               x="50%"
               y="100%"
@@ -107,7 +116,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
         </div>
         <div style={{ color: '#FFD700', fontSize: '14px' }} className="mt-4 p-2 text-right">
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.5)', padding: '0.5rem', borderRadius: '0.5rem' }}>
               {image.exifData.location && (
                 <>
                   <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +126,9 @@ export function Lightbox({ image, onClose }: LightboxProps) {
                 </>
               )}
             </div>
-            <div>{image.exifData.dateTaken ? new Date(image.exifData.dateTaken).toLocaleDateString() : ''}</div>
+            <div className="bg-black/50 px-4 py-2 rounded-lg">
+              {image.exifData.dateTaken ? new Date(image.exifData.dateTaken).toLocaleDateString() : ''}
+            </div>
           </div>
         </div>
       </div>
