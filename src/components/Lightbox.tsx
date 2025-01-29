@@ -19,6 +19,10 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    document.body.style.cursor = isHovered ? 'pointer' : 'auto';
+  }, [isHovered]);
+  
+  useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         handleClose();
@@ -89,9 +93,9 @@ export function Lightbox({ image, onClose }: LightboxProps) {
           className="absolute top-4 right-4 z-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24">
-            <g transform="rotate(45, 12, 12)">
+            <g transform="rotate(45, 12, 12)" className="closeButton">
               <circle cx="12" cy="12" r="8" fill="#888" fillOpacity="0.5"  />
-              <path d="M7 12 h 10 m -5 -5 v 10" stroke="#888" strokeWidth="2" strokeLinecap="round" className="hover:stroke-[#FFD700]"/>
+              <path d="M7 12 h 10 m -5 -5 v 10" stroke={isHovered ? '#FFD700' : '#888'} strokeWidth="2" strokeLinecap="round" className="closeX"/>
             </g>
           </svg>
         </button>
