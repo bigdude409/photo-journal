@@ -17,10 +17,6 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   const [isHovered, setIsHovered] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    document.body.style.cursor = isHovered ? 'pointer' : 'auto';
-  }, [isHovered]);
   
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -77,7 +73,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
 
   // Calculate width based on text length
   const makeText = `${image.exifData.make} ${image.exifData.model}`;
-  const textWidth = (makeText?.length ?? 0) * 8 + 15; // Use default length of 0 if makeText is undefined
+  const textWidth = (makeText?.length ?? 0) * 8 + 17; // Use default length of 0 if makeText is undefined
 
   return (
     <div
@@ -97,9 +93,9 @@ export function Lightbox({ image, onClose }: LightboxProps) {
           className="absolute top-4 right-4 z-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24">
-            <g transform="rotate(45, 12, 12)" className="closeButton">
+            <g transform="rotate(45, 12, 12)">
               <circle cx="12" cy="12" r="8" fill="#888" fillOpacity="0.5"  />
-              <path d="M7 12 h 10 m -5 -5 v 10" stroke={isHovered ? '#FFD700' : '#888'} strokeWidth="2" strokeLinecap="round" className="closeX"/>
+              <path d="M7 12 h 10 m -5 -5 v 10" stroke={isHovered ? '#FFD700' : '#888'} strokeWidth="2" strokeLinecap="round"/>
             </g>
           </svg>
         </button>

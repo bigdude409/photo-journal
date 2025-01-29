@@ -59,7 +59,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
 
         // Calculate width based on text length
     const makeText = `${exifData.make} ${exifData.model}`;
-    const textWidth = (makeText?.length ?? 0) * 8 + 15; // Use default length of 0 if makeText is undefined
+    const textWidth = (makeText?.length ?? 0) * 8 + 17; // Use default length of 0 if makeText is undefined
 
     return (
         <div style={{ opacity: 0 }}
