@@ -57,6 +57,10 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
         }
     }, [isHovering]);
 
+        // Calculate width based on text length
+    const makeText = `${exifData.make} ${exifData.model}`;
+    const textWidth = (makeText?.length ?? 0) * 8 + 15; // Use default length of 0 if makeText is undefined
+
     return (
         <div style={{ opacity: 0 }}
             ref={containerRef}>
@@ -83,7 +87,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     <rect
                         x="5"
                         y="10"
-                        width="120"
+                        width={textWidth}
                         height="22"
                         rx="8"
                         fill="rgba(0,0,0,0.5)"

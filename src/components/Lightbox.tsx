@@ -75,6 +75,10 @@ export function Lightbox({ image, onClose }: LightboxProps) {
 
   if (!image) return null;
 
+  // Calculate width based on text length
+  const makeText = `${image.exifData.make} ${image.exifData.model}`;
+  const textWidth = (makeText?.length ?? 0) * 8 + 15; // Use default length of 0 if makeText is undefined
+
   return (
     <div
       ref={overlayRef}
@@ -118,7 +122,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             <rect
               x="5"
               y="10"
-              width="120"
+              width={textWidth}
               height="22"
               rx="8"
               fill="rgba(0,0,0,0.5)"

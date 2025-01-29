@@ -24,10 +24,10 @@ const blogImages: BlogImage[] = [
     exifData: {
       make: "Canon",
       model: "EOS 77D",
-      shutterSpeed: "1/250",
+      shutterSpeed: "1/2500",
       fNumber: "2.8",
-      iso: 18000,
-      focalLength: "70",
+      iso: 128000,
+      focalLength: "1600",
       dateTaken: "2024-03-19",
       location: "Glamis Dunes, CA"
     }
