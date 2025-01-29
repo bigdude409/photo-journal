@@ -175,12 +175,12 @@ export default function BlogPage() {
   const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
 
   useGSAP(() => {
-    gsap.from(".fadein", { opacity: 0, duration: .5, ease: "power2.inOut" });
+    gsap.from(".fade-in", { opacity: 0, duration: .5, ease: "power2.inOut" });
   }, []);
 
   return (
     <main className="min-h-screen p-8">
-      <h1 className="fadein text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
+      <h1 className="fade-in text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
         BUD'S OFFROADING ADVENTURES
       </h1>
 
@@ -188,7 +188,7 @@ export default function BlogPage() {
         {blogImages.map((image) => (
           <div key={image.id}>
             <div
-              className="relative group cursor-pointer"
+              className="relative group cursor-zoom-in"
               onClick={() => setSelectedImage(image)}
             >
               <ImageWithExif
@@ -197,7 +197,7 @@ export default function BlogPage() {
                 exifData={image.exifData}
               />
             </div>
-            <div style={{ color: '#FFD700', fontSize: '14px' }} className="fadein bottom-0 right-0 p-2 text-right text-white">
+            <div style={{ color: '#FFD700', fontSize: '14px' }} className="fade-in bottom-0 right-0 p-2 text-right text-white">
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
 
