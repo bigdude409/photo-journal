@@ -159,13 +159,13 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               width="100%"
               fill="#FFD700"
               fontFamily="var(--font-geist-mono)"
-              fontSize="11"
+              fontSize="12"
               fontWeight="bold"
               textAnchor="middle"
             >
               <tspan dx="0" dy="-15">{image.exifData.shutterSpeed}</tspan>
               <tspan dx="0" dy="0" fontSize="7">S</tspan>
-              <tspan dx="10" dy="0">f/{image.exifData.fNumber}</tspan>
+              <tspan dx="10" dy="0"><tspan style={{ fontFamily: "Times New Roman", fontStyle: "italic" }}>f/</tspan>{image.exifData.fNumber}</tspan>
               <tspan dx="10" dy="0">{image.exifData.iso}</tspan>
               <tspan dx="0" dy="0" fontSize="7">ISO</tspan>
               <tspan dx="10" dy="0">{image.exifData.focalLength}</tspan>
