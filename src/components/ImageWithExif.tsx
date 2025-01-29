@@ -33,7 +33,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
             gsap.to(containerRef.current,
                 {
                     opacity: 1,
-                    duration: 0.25,
+                    duration: 0.3,
                     ease: 'power2.inOut'
                 });
         }
