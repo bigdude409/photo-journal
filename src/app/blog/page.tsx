@@ -89,7 +89,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 6,
     src: "/photos/photo2.jpg",
     alt: "Portrait photo",
@@ -102,7 +102,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 7,
     src: "/photos/photo2.jpg",
     alt: "Portrait photo",
@@ -115,7 +115,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 8,
     src: "/photos/photo1.jpg",
     alt: "Portrait photo",
@@ -128,7 +128,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 9,
     src: "/photos/photo1.jpg",
     alt: "Portrait photo",
@@ -141,7 +141,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 10,
     src: "/photos/photo2.jpg",
     alt: "Portrait photo",
@@ -154,7 +154,7 @@ const blogImages: BlogImage[] = [
       focalLength: "85",
       dateTaken: "2024-03-18"
     }
-  },{
+  }, {
     id: 11,
     src: "/photos/photo1.jpg",
     alt: "Portrait photo",
@@ -180,27 +180,43 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen p-8">
-      <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700'}}>
+      <h1 className="text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
         BUD'S OFFROADING ADVENTURES
       </h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogImages.map((image) => (
-          <div 
-            key={image.id} 
-            className="relative group cursor-pointer"
-            onClick={() => setSelectedImage(image)}
-          >
-            <ImageWithExif
-              src={image.src}
-              alt={image.alt}
-              exifData={image.exifData}
-            />
+          <div key={image.id}>
+            <div
+              className="relative group cursor-pointer"
+              onClick={() => setSelectedImage(image)}
+            >
+              <ImageWithExif
+                src={image.src}
+                alt={image.alt}
+                exifData={image.exifData}
+              />
+            </div>
+            <div style={{ color: '#FFD700', fontSize: '14px' }} className=" bottom-0 right-0 p-2 text-right text-white">
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+
+                  {image.exifData.location && (
+                    <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#FFD700" />
+                    </svg>
+                  )}
+                  <div>{image.exifData.location}</div>
+                </div>
+                <div>{image.exifData.dateTaken ? new Date(image.exifData.dateTaken).toLocaleDateString() : ''}</div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      <Lightbox 
+
+      <Lightbox
         image={selectedImage}
         onClose={() => setSelectedImage(null)}
       />
