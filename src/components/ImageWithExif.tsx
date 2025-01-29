@@ -94,7 +94,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                     />
                     <svg
                         x="10"
-                        y="10"
+                        y="11"
                         width="24"
                         height="24"
                         viewBox="0 0 30 30"
@@ -135,12 +135,12 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         textAnchor="middle"
                     >
                         <tspan dx="0" dy="-15">{exifData.shutterSpeed}</tspan>
-                        <tspan dx="0" dy="0" fontSize="7">S</tspan>
+                        <tspan dx="0" dy="0" fontSize="8">S</tspan>
                         <tspan dx="10" dy="0"><tspan style={{ fontFamily: "Times New Roman", fontStyle: "italic" }}>f/</tspan>{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
-                        <tspan dx="0" dy="0" fontSize="7">ISO</tspan>
+                        <tspan dx="0" dy="0" fontSize="8">ISO</tspan>
                         <tspan dx="10" dy="0">{exifData.focalLength}</tspan>
-                        <tspan dx="0" dy="0" fontSize="7">MM</tspan>
+                        <tspan dx="0" dy="0" fontSize="8">MM</tspan>
                     </text>
                 </svg>
 
