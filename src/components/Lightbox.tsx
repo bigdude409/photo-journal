@@ -78,7 +78,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center cursor-default"
       onClick={handleClose}
     >
       <div
@@ -94,8 +94,8 @@ export function Lightbox({ image, onClose }: LightboxProps) {
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24">
             <g transform="rotate(45, 12, 12)">
-              <circle cx="12" cy="12" r="8" fill="#888" fillOpacity="0.5"  />
-              <path d="M7 12 h 10 m -5 -5 v 10" stroke={isHovered ? '#FFD700' : '#888'} strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="12" cy="12" r="10" fill="#000" fillOpacity="0.5"  />
+              <path d="M6 12 h 12 m -6 -6 v 12" stroke={isHovered ? '#FFD700' : '#888'} strokeWidth="1" strokeLinecap="round"/>
             </g>
           </svg>
         </button>
