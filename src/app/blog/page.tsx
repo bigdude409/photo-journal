@@ -6,9 +6,11 @@ import { ImageWithExif } from "@/components/ImageWithExif";
 import { ExifData } from "@/components/ImageWithExif";
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Lightbox } from '@/components/Lightbox';
-
+// import LoginPage from '../login/page';
+import { useRouter } from 'next/navigation';
+import LoginPage from "../login/page";
 interface BlogImage {
   id: number;
   src: string;
@@ -171,18 +173,38 @@ const blogImages: BlogImage[] = [
   // Add more images as needed
 ];
 
-export default function BlogPage() {
+const HomePage = () => {
   const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
+  const [animationComplete, setAnimationComplete] = useState(false);
+
+  const token = localStorage.getItem('authToken');
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!token) {
+      router.push('/login');
+    }
+  }, [token, router]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken'); // Remove the token
+    router.push('/login'); // Redirect to login
+  };
 
   useGSAP(() => {
     gsap.from(".fade-in", { opacity: 0, duration: .5, ease: "power2.inOut" });
   }, []);
 
   return (
-    <main className="min-h-screen p-8">
-      <h1 className="fade-in text-3xl font-normal mb-8 ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
-        BUD'S OFFROADING ADVENTURES
-      </h1>
+    <main className="min-h-screen p-8" style={{ backgroundColor: 'black' }}>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
+          BUD'S OFFROADING ADVENTURES
+        </h1>
+        <button onClick={handleLogout} className="text-white hover:text-gray-300" style={{ backgroundColor: 'black', color: '#FFD700', border: '1px solid #FFD700', borderRadius: '10px', padding: '5px 10px' }}>
+          Logout
+        </button>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogImages.map((image) => (
@@ -215,11 +237,12 @@ export default function BlogPage() {
         ))}
       </div>
 
-
       <Lightbox
         image={selectedImage}
         onClose={() => setSelectedImage(null)}
       />
     </main>
   );
-} 
+};
+
+export default HomePage; 
