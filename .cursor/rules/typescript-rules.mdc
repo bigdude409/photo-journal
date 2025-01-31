@@ -1,0 +1,10 @@
+---
+description: These are the rules when using typescript
+globs: *.tsx,*.ts
+---
+
+# Your rule content
+
+- You can @ files here
+[tsconfig.json](mdc:tsconfig.json)
+- You can use markdown but dont have to
