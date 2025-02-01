@@ -11,183 +11,89 @@ import { Lightbox } from '@/components/Lightbox';
 // import LoginPage from '../login/page';
 import { useRouter } from 'next/navigation';
 import LoginPage from "../login/page";
+
+// [
+//   {
+//       "_id": "679d4f69e89fa984a957360f",
+//       "userId": "679d4b923a736d3bb0133bd0",
+//       "images": [
+//           {
+//               "exifData": {
+//                   "make": "Canon",
+//                   "model": "EOS 77D",
+//                   "fNumber": "2.8",
+//                   "iso": 128000,
+//                   "focalLength": "1600",
+//                   "dateTaken": "2024-03-19",
+//                   "location": "Glamis Dunes, CA",
+//                   "shutterSpeed": "1/2500"
+//               },
+//               "src": "/photos/photo1.jpg",
+//               "alt": "Landscape photo",
+//               "_id": "679d4f69e89fa984a9573610"
+//           }
+//       ],
+//       "__v": 0
+//   }
+// ]
+
 interface BlogImage {
-  id: number;
+  _id: number;
   src: string;
   alt: string;
   exifData: ExifData;
 }
 
-const blogImages: BlogImage[] = [
-  {
-    id: 1,
-    src: "/photos/photo1.jpg",
-    alt: "Landscape photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/2500",
-      fNumber: "2.8",
-      iso: 128000,
-      focalLength: "1600",
-      dateTaken: "2024-03-19",
-      location: "Glamis Dunes, CA"
-    }
-  },
-  {
-    id: 2,
-    src: "/photos/photo2.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Nikon",
-      model: "Z6",
-      shutterSpeed: "1/259",
-      fNumber: "5.6",
-      iso: 50,
-      focalLength: "85",
-      dateTaken: "2024-03-18",
-      location: "Pismo Beach, CA"
-    }
-  },
-  {
-    id: 3,
-    src: "/photos/photo1.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Nikon",
-      model: "Z6",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "105",
-      dateTaken: "2024-03-18",
-      location: "Glamis Dunes, CA"
-    }
-  },
-  {
-    id: 4,
-    src: "/photos/photo1.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  },
-  {
-    id: 5,
-    src: "/photos/photo2.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 6,
-    src: "/photos/photo2.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 7,
-    src: "/photos/photo2.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 8,
-    src: "/photos/photo1.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 9,
-    src: "/photos/photo1.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 10,
-    src: "/photos/photo2.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  }, {
-    id: 11,
-    src: "/photos/photo1.jpg",
-    alt: "Portrait photo",
-    exifData: {
-      make: "Canon",
-      model: "EOS 77D",
-      shutterSpeed: "1/125",
-      fNumber: "1.8",
-      iso: 400,
-      focalLength: "85",
-      dateTaken: "2024-03-18"
-    }
-  },
-  // Add more images as needed
-];
-
 const HomePage = () => {
+  const [blogImages, setBlogImages] = useState<BlogImage[]>([]);
   const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
   const [animationComplete, setAnimationComplete] = useState(false);
 
-  const token = localStorage.getItem('authToken');
+
   const router = useRouter();
 
   useEffect(() => {
+    const token = localStorage.getItem('authToken');
     if (!token) {
       router.push('/login');
+      return;
     }
-  }, [token, router]);
+
+    const fetchImages = async () => {
+      try {
+        const userId = localStorage.getItem('userId'); // Assuming you store the email in localStorage
+        console.log('User ID:', userId);
+        const response = await fetch(`http://localhost:3010/api/v1/user/media/${userId}`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch images');
+        }
+
+        const data = await response.json();
+        console.log('Fetched data:', data);
+
+        if (Array.isArray(data[0].images)) {
+          setBlogImages(data[0].images);
+          console.log('Updated blogImages:', data[0].images);
+        } else {
+          console.error('Data.images is not an array:', data[0].images);
+        }
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    fetchImages();
+  }, [ router]);
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Remove the token
+    localStorage.removeItem('userId'); // Remove the email
     router.push('/login'); // Redirect to login
   };
 
@@ -208,7 +114,7 @@ const HomePage = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {blogImages.map((image) => (
-          <div key={image.id}>
+          <div key={image._id}>
             <div
               className="relative group cursor-zoom-in"
               onClick={() => setSelectedImage(image)}

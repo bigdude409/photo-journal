@@ -46,10 +46,13 @@ const LoginPage = () => {
             }
 
             const data = await response.json();
+            console.log(data);
             const token = data.token;
+            const userId = data.userId;
 
             // Save the token for subsequent calls
             localStorage.setItem('authToken', token);
+            localStorage.setItem('userId', userId);
             setIsLoggedIn(true);
         } catch (err) {
             if (err instanceof Error) {
