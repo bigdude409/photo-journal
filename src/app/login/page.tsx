@@ -126,7 +126,7 @@ const LoginPage = () => {
                                             cursor: 'pointer',
                                             textAlign: 'center',
                                             width: '50%',
-                                            margin: '20px auto 0',
+                                            margin: '30px auto 0',
                                             fontFamily: 'inherit',
                                         }}
                                     >
