@@ -108,7 +108,7 @@ const HomePage = () => {
         <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
           BUD'S OFFROADING ADVENTURES
         </h1>
-        <button onClick={handleLogout} className="text-white hover:text-gray-300" style={{ backgroundColor: 'black', color: '#FFD700', border: '1px solid #FFD700', borderRadius: '10px', padding: '5px 10px' }}>
+        <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300" style={{ backgroundColor: 'black', color: '#FFD700', border: '1px solid #FFD700', borderRadius: '10px', padding: '5px 10px' }}>
           Logout
         </button>
       </div>
