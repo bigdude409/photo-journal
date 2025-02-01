@@ -80,8 +80,8 @@ const LoginPage = () => {
                                         width: '100%',
                                         background: 'black',
                                         borderRadius: '5px',
-                                        border: '1px solid #FFD700',
-                                        outlineColor: '#FFD700',
+                                        border: '2px solid #FFD700',
+                                        outlineColor: 'blue',
                                         color: '#FFD700',
                                         paddingLeft: '10px',
                                     
@@ -101,8 +101,8 @@ const LoginPage = () => {
                                         width: '100%',
                                         background: 'black',
                                         borderRadius: '5px',
-                                        border: '1px solid #FFD700',
-                                        outlineColor: '#FFD700',
+                                        border: '2px solid #FFD700',
+                                        outlineColor: 'blue',
                                         color: '#FFD700',
                                         paddingLeft: '10px',
                                        
