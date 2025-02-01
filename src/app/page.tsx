@@ -35,7 +35,7 @@ export default function Home() {
       ease: "elastic.out(1, 0.7)"
     }, "+=.3");
     tl.to(split.chars, {
-      color: "#AA9100", // Gold color, often used in stars title sequences
+      color: "#887000", // Gold color, often used in stars title sequences
       duration: .25,
       stagger: 0.05,
       // ease: "power4.in"
