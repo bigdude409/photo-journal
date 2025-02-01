@@ -19,8 +19,8 @@ const LoginPage = () => {
         }
     }, []);
 
-      // Redirect if logged in
-      useEffect(() => {
+    // Redirect if logged in
+    useEffect(() => {
         if (isLoggedIn) {
             router.push('/blog');
         }
@@ -64,71 +64,81 @@ const LoginPage = () => {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'black' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'black' }}>
+            <h1 style={{ color: '#FFD700', fontFamily: 'inherit', marginBottom: '20px', fontSize: '4em', position: 'absolute', top: '33%' }}>Photo Journal</h1>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                <table style={{ color: '#FFD700', marginBottom: '20px' }}>
-                    <tbody>
-                        <tr>
-                            <td style={{ textAlign: 'right', paddingRight: '10px' }}><h2>Email</h2></td>
-                            <td>
-                                <input
-                                    type="text"
-                                    placeholder="Email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        background: 'black',
-                                        borderRadius: '5px',
-                                        border: '2px solid #FFD700',
-                                        outlineColor: 'blue',
-                                        color: '#FFD700',
-                                        paddingLeft: '10px',
-                                    
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ textAlign: 'right', paddingRight: '10px' }}><h2>Password</h2></td>
-                            <td>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                    style={{
-                                        width: '100%',
-                                        background: 'black',
-                                        borderRadius: '5px',
-                                        border: '2px solid #FFD700',
-                                        outlineColor: 'blue',
-                                        color: '#FFD700',
-                                        paddingLeft: '10px',
-                                       
-                                    }}
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
-                <button
-                    onClick={handleLogin}
-                    style={{
-                        padding: '10px 20px',
-                        border: '2px solid #FFD700',
-                        color: '#FFD700',
-                        background: 'transparent',
-                        borderRadius: '20px',
-                        cursor: 'pointer',
-                        textAlign: 'center',
-                        width: '50%',
-                        alignSelf: 'center'
-                    }}
-                >
-                    Login
-                </button>
+                <div style={{ border: '1px solid #FFD700', borderRadius: '25px', padding: '20px', backgroundColor: 'black' }}>
+                    <table style={{ color: '#FFD700', marginBottom: '20px' }}>
+                        <tbody>
+                            <tr>
+                                <td style={{ textAlign: 'right', paddingRight: '10px' }}><h2>Email</h2></td>
+                                <td>
+                                    <input
+                                        type="text"
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        style={{
+                                            width: '100%',
+                                            background: 'black',
+                                            borderRadius: '5px',
+                                            border: '2px solid #FFD700',
+                                            outlineColor: 'blue',
+                                            color: '#FFD700',
+                                            paddingLeft: '10px',
+                                            fontFamily: 'inherit',
+                                        }}
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{ textAlign: 'right', paddingRight: '10px' }}><h2>Password</h2></td>
+                                <td>
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        style={{
+                                            width: '100%',
+                                            background: 'black',
+                                            borderRadius: '5px',
+                                            border: '2px solid #FFD700',
+                                            outlineColor: 'blue',
+                                            color: '#FFD700',
+                                            paddingLeft: '10px',
+                                            fontFamily: 'inherit',
+                                        }}
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <button
+                                        onClick={handleLogin}
+                                        style={{
+                                            padding: '10px 20px',
+                                            border: '2px solid #FFD700',
+                                            color: '#FFD700',
+                                            background: 'transparent',
+                                            borderRadius: '20px',
+                                            cursor: 'pointer',
+                                            textAlign: 'center',
+                                            width: '50%',
+                                            margin: '20px auto 0',
+                                            fontFamily: 'inherit',
+                                        }}
+                                    >
+                                        Login
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {error && <p style={{ color: 'red', textAlign: 'center' }}>{error}</p>}
+
+                </div>
             </div>
         </div>
     );
