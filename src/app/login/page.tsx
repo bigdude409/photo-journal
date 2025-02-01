@@ -67,7 +67,7 @@ const LoginPage = () => {
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'black' }}>
             <h1 style={{ color: '#FFD700', fontFamily: 'inherit', marginBottom: '0px', fontSize: '4em', position: 'absolute', top: '10%' }}>Photo Journal</h1>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                <div style={{ border: '1px solid #FFD700', borderRadius: '25px', padding: '20px', backgroundColor: '#444422' }}>
+                <div style={{ border: '1px solid #FFD700', borderRadius: '15px', padding: '10px', backgroundColor: '#444422' }}>
                     <table style={{ color: '#FFD700', marginBottom: '0px' }}>
                         <tbody>
                             <tr>
@@ -128,7 +128,10 @@ const LoginPage = () => {
                                             width: '50%',
                                             margin: '10px auto 0',
                                             fontFamily: 'inherit',
+                                            transition: 'background-color 0.3s ease'
                                         }}
+                                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'black'}
+                                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                     >
                                         Login
                                     </button>
