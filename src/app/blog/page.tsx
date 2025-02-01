@@ -78,7 +78,8 @@ const HomePage = () => {
         console.log('Fetched data:', data);
 
         if (Array.isArray(data[0].images)) {
-          setBlogImages(data[0].images);
+          setBlogImages(data.map((item: { images: any; }) => item.images).flat());
+          // setBlogImages(data[0].images);
           console.log('Updated blogImages:', data[0].images);
         } else {
           console.error('Data.images is not an array:', data[0].images);
