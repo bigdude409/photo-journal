@@ -63,7 +63,7 @@ const HomePage = () => {
       try {
         const userId = localStorage.getItem('userId'); // Assuming you store the email in localStorage
         console.log('User ID:', userId);
-        const response = await fetch(`http://localhost:3010/api/v1/user/media/${userId}`, {
+        const response = await fetch(`http:///${window.location.hostname}:3010/api/v1/user/media/${userId}`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`

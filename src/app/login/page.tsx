@@ -30,7 +30,7 @@ const LoginPage = () => {
         return null;
     }
 
-    const authEndpoint = 'http://localhost:3010/api/v1/user/login';
+    const authEndpoint = `http://${window.location.hostname}:3010/api/v1/user/login`;
     const handleLogin = async () => {
         try {
             const response = await fetch(authEndpoint, {
@@ -65,9 +65,9 @@ const LoginPage = () => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'black' }}>
-            <h1 style={{ color: '#FFD700', fontFamily: 'inherit', marginBottom: '20px', fontSize: '4em', position: 'absolute', top: '33%' }}>Photo Journal</h1>
+            <h1 style={{ color: '#FFD700', fontFamily: 'inherit', marginBottom: '20px', fontSize: '4em', position: 'absolute', top: '10%' }}>Photo Journal</h1>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                <div style={{ border: '1px solid #FFD700', borderRadius: '25px', padding: '20px', backgroundColor: 'black' }}>
+                <div style={{ border: '1px solid #FFD700', borderRadius: '25px', padding: '20px', backgroundColor: '#444422' }}>
                     <table style={{ color: '#FFD700', marginBottom: '20px' }}>
                         <tbody>
                             <tr>
