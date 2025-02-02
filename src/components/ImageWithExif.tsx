@@ -78,8 +78,8 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 <Image
                     src={src}
                     alt={alt}
-                    width={400}
-                    height={300}
+                    width={300}
+                    height={200}
                     className="w-full h-auto object-cover aspect-[4/3] rounded-xl"
                 />
                 <svg
