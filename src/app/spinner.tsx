@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
+import { useRef } from 'react';
+// import { gsap } from "gsap";
+// import { useGSAP } from "@gsap/react";
 
 
 export function Spinner() {
@@ -10,15 +10,15 @@ export function Spinner() {
   // Hide spinner when the page is fully loaded
   const spinnerRef = useRef<HTMLDivElement>(null);
  
-  const tl = gsap.timeline();
+  // const tl = gsap.timeline();
 
-  useGSAP(() => {
-    tl.to(spinnerRef.current, {
-      opacity: 0,
-      duration: 2,
-      ease: "power4.in"
-    });
-  }, []);
+  // useGSAP(() => {
+  //   tl.to(spinnerRef.current, {
+  //     opacity: 0,
+  //     duration: 2,
+  //     ease: "power4.in"
+  //   });
+  // }, []);
 
   return (
     <div ref={spinnerRef} className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-black transition-opacity duration-500">

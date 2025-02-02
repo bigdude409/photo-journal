@@ -8,34 +8,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { useState, useEffect } from 'react';
 import { Lightbox } from '@/components/Lightbox';
-// import LoginPage from '../login/page';
 import { useRouter } from 'next/navigation';
-import LoginPage from "../login/page";
-
-// [
-//   {
-//       "_id": "679d4f69e89fa984a957360f",
-//       "userId": "679d4b923a736d3bb0133bd0",
-//       "images": [
-//           {
-//               "exifData": {
-//                   "make": "Canon",
-//                   "model": "EOS 77D",
-//                   "fNumber": "2.8",
-//                   "iso": 128000,
-//                   "focalLength": "1600",
-//                   "dateTaken": "2024-03-19",
-//                   "location": "Glamis Dunes, CA",
-//                   "shutterSpeed": "1/2500"
-//               },
-//               "src": "/photos/photo1.jpg",
-//               "alt": "Landscape photo",
-//               "_id": "679d4f69e89fa984a9573610"
-//           }
-//       ],
-//       "__v": 0
-//   }
-// ]
 
 interface BlogImage {
   _id: number;
@@ -47,8 +20,6 @@ interface BlogImage {
 const HomePage = () => {
   const [blogImages, setBlogImages] = useState<BlogImage[]>([]);
   const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
-
 
   const router = useRouter();
 
@@ -78,7 +49,7 @@ const HomePage = () => {
         console.log('Fetched data:', data);
 
         if (Array.isArray(data[0].images)) {
-          setBlogImages(data.map((item: { images: any; }) => item.images).flat());
+          setBlogImages(data.map((item: { images: BlogImage[]; }) => item.images).flat());
           // setBlogImages(data[0].images);
           console.log('Updated blogImages:', data[0].images);
         } else {
@@ -106,7 +77,7 @@ const HomePage = () => {
     <main className="min-h-screen p-8" style={{ backgroundColor: 'black' }}>
       <div className="flex justify-between items-center mb-8">
         <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
-          BUD'S OFFROADING ADVENTURES
+          BUD&apos;S OFFROADING ADVENTURES
         </h1>
         <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300" 
         style={{ fontSize: '12px', backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#666', border: '1px solid #666', borderRadius: '10px', padding: '2px 10px', transition: 'background-color 0.3s ease' }} 

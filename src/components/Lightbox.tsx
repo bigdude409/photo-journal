@@ -3,7 +3,7 @@
 import { ExifData } from "./ImageWithExif";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-
+import Image from "next/image";
 interface LightboxProps {
   image: {
     src: string;
@@ -27,7 +27,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
 
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, []);
+  });
 
   useEffect(() => {
     if (image) {
@@ -100,7 +100,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
           </svg>
         </button>
         <div className="relative">
-          <img
+          <Image
             src={image.src}
             alt={image.alt}
             className="max-h-[90vh] w-auto object-contain rounded-xl"

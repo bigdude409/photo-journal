@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import { useEffect, useRef, useState } from "react";
-import { Spinner } from "./spinner";
+// import { Spinner } from "./spinner";
 import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(useGSAP, SplitText);
@@ -22,10 +22,10 @@ export default function Home() {
     if (isAnimComplete) {
       router.push('/blog');
     }
-  }, [isAnimComplete]); // Include router.isReady in the dependency array
+  }, [isAnimComplete, router]); // Include router.isReady in the dependency array
 
   useGSAP(() => {
-    var split = new SplitText('.message', { type: "chars" });
+    const split = new SplitText('.message', { type: "chars" });
     //now animate each character into place from 100px above, fading in:
     tl.from(split.chars, {
       duration: 1,
@@ -83,7 +83,7 @@ export default function Home() {
 
           <h1
             style={{ opacity: 1, textTransform: "uppercase", color: '#FFD700' }}
-            className="message text-4xl">Build What's Next...
+            className="message text-4xl">Build What&apos;s Next...
           </h1>
 
         </div>

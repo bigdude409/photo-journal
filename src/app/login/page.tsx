@@ -17,7 +17,7 @@ const LoginPage = () => {
             setIsLoggedIn(true);
             router.push('/blog');
         }
-    }, []);
+    }, [router]);
 
     // Redirect if logged in
     useEffect(() => {
@@ -30,7 +30,7 @@ const LoginPage = () => {
         return null;
     }
 
-    const authEndpoint = `http://${window.location.hostname}:3010/api/v1/user/login`;
+    const authEndpoint = `http://localhost:3010/api/v1/user/login`;
     const handleLogin = async () => {
         try {
             const response = await fetch(authEndpoint, {

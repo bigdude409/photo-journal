@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
-
+import Image from 'next/image';
 export interface ExifData {
     make?: string;
     model?: string;
@@ -69,7 +69,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
             >
-                <img
+                <Image
                     src={src}
                     alt={alt}
                     className="w-full h-auto object-cover aspect-[4/3] rounded-xl"
