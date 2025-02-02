@@ -92,7 +92,7 @@ const HomePage = () => {
     <main className="min-h-screen p-8" style={{ backgroundColor: 'black' }}>
       <div className="flex justify-between items-center mb-8">
         <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
-          BUD&apos;S OFFROADING ADVENTURES
+          SANTA BARBARA TRIP
         </h1>
         <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300"
           style={{ fontSize: '12px', backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#666', border: '1px solid #666', borderRadius: '10px', padding: '2px 10px', transition: 'background-color 0.3s ease' }}

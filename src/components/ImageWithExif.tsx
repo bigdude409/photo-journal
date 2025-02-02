@@ -65,8 +65,6 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
 
     const exposureTime = exifData.exposureTime ? format(fraction(exifData.exposureTime), { fraction: 'ratio' }) : '';
 
-
-
     return (
         <div style={{ opacity: 0 }}
             ref={containerRef}>
