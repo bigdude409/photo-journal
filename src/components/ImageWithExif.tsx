@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { fraction, format } from 'mathjs';
+
 import Image from 'next/image';
 export interface ExifData {
     make?: string;
@@ -57,9 +59,13 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
         }
     }, [isHovering]);
 
-        // Calculate width based on text length
-    const makeText = `${exifData.make} ${exifData.model}`;
+    // Calculate width based on text length
+    const makeText = `${exifData.model}`;
     const textWidth = (makeText?.length ?? 0) * 8 + 17; // Use default length of 0 if makeText is undefined
+
+    const exposureTime = exifData.exposureTime ? format(fraction(exifData.exposureTime), { fraction: 'ratio' }) : '';
+
+
 
     return (
         <div style={{ opacity: 0 }}
@@ -113,7 +119,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fontSize="11"
                     // dominantBaseline="hanging"
                     >
-                        <tspan dx="15" dy="5">{exifData.make} {exifData.model}</tspan>
+                        <tspan dx="15" dy="5">{exifData.model}</tspan>
 
                     </text>
                     <rect
@@ -136,7 +142,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         // dominantBaseline="hanging"
                         textAnchor="middle"
                     >
-                        <tspan dx="0" dy="-15">{exifData.shutterSpeed}</tspan>
+                        <tspan dx="0" dy="-15">{exposureTime}</tspan>
                         <tspan dx="0" dy="0" fontSize="8">S</tspan>
                         <tspan dx="10" dy="0"><tspan style={{ fontFamily: "Times New Roman", fontStyle: "italic" }}>f/</tspan>{exifData.fNumber}</tspan>
                         <tspan dx="10" dy="0">{exifData.iso}</tspan>
@@ -147,7 +153,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                 </svg>
 
             </div>
-            
+
 
         </div>
     );

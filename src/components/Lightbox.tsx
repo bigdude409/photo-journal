@@ -3,6 +3,7 @@
 import { ExifData } from "./ImageWithExif";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { format, fraction } from 'mathjs';
 import Image from "next/image";
 interface LightboxProps {
   image: {
@@ -12,6 +13,7 @@ interface LightboxProps {
   } | null;
   onClose: () => void;
 }
+
 
 export function Lightbox({ image, onClose }: LightboxProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -72,9 +74,24 @@ export function Lightbox({ image, onClose }: LightboxProps) {
   if (!image) return null;
 
   // Calculate width based on text length
-  const makeText = `${image.exifData.make} ${image.exifData.model}`;
+  const makeText = `${image.exifData.model}`;
+  // const makeText = `${image.exifData.make} ${image.exifData.model}`;
   const textWidth = (makeText?.length ?? 0) * 8 + 17; // Use default length of 0 if makeText is undefined
+  const exposureTime = image.exifData.exposureTime ? format(fraction(image.exifData.exposureTime), { fraction: 'ratio' }) : '';
 
+  
+  const inputDateStr = image.exifData.dateTaken;
+
+  // Replace colons in the date part with dashes to make it a valid format
+  const formattedDateStr = inputDateStr?.replace(":", "-").replace(":", "-");
+  
+  // Create a Date object
+  const dateObj = formattedDateStr ? new Date(formattedDateStr) : '';
+  
+  // Convert to locale format
+  const localeDateStr = dateObj ? dateObj.toLocaleString() : '';
+  
+  console.log(localeDateStr);
   return (
     <div
       ref={overlayRef}
@@ -101,7 +118,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
         </button>
         <div className="relative">
           <Image
-            src={image.src}
+            src={"/media/" + image.src}
             alt={image.alt}
             width={4000}
             height={3000}
@@ -144,7 +161,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               fontFamily="var(--font-geist-mono)"
               fontSize="11"
             >
-              <tspan dx="15" dy="5">{image.exifData.make} {image.exifData.model}</tspan>
+              <tspan dx="15" dy="5">{image.exifData.model}</tspan>
             </text>
             <rect
               x="50%"
@@ -165,7 +182,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               fontWeight="bold"
               textAnchor="middle"
             >
-              <tspan dx="0" dy="-15">{image.exifData.shutterSpeed}</tspan>
+              <tspan dx="0" dy="-15">{exposureTime}</tspan>
               <tspan dx="0" dy="0" fontSize="8">S</tspan>
               <tspan dx="10" dy="0"><tspan style={{ fontFamily: "Times New Roman", fontStyle: "italic" }}>f/</tspan>{image.exifData.fNumber}</tspan>
               <tspan dx="10" dy="0">{image.exifData.iso}</tspan>
@@ -188,7 +205,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
               )}
             </div>
             <div className="bg-black/50 px-4 py-2 rounded-lg">
-              {image.exifData.dateTaken ? new Date(image.exifData.dateTaken).toLocaleDateString() : ''}
+              {localeDateStr}
             </div>
           </div>
         </div>

@@ -17,6 +17,20 @@ interface BlogImage {
   exifData: ExifData;
 }
 
+const getLocaleDateStr = (image: BlogImage) => {
+  const inputDateStr = image.exifData.dateTaken;
+
+  // Replace colons in the date part with dashes to make it a valid format
+  const formattedDateStr = inputDateStr?.replace(":", "-").replace(":", "-");
+
+  // Create a Date object
+  const dateObj = formattedDateStr ? new Date(formattedDateStr) : '';
+
+  // Convert to locale format
+  const localeDateStr = dateObj ? dateObj.toLocaleString() : '';
+  return localeDateStr;
+}
+
 const HomePage = () => {
   const [blogImages, setBlogImages] = useState<BlogImage[]>([]);
   const [selectedImage, setSelectedImage] = useState<BlogImage | null>(null);
@@ -61,7 +75,7 @@ const HomePage = () => {
     };
 
     fetchImages();
-  }, [ router]);
+  }, [router]);
 
   const handleLogout = () => {
     localStorage.removeItem('authToken'); // Remove the token
@@ -73,16 +87,17 @@ const HomePage = () => {
     gsap.from(".fade-in", { opacity: 0, duration: .5, ease: "power2.inOut" });
   }, []);
 
+
   return (
     <main className="min-h-screen p-8" style={{ backgroundColor: 'black' }}>
       <div className="flex justify-between items-center mb-8">
         <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
           BUD&apos;S OFFROADING ADVENTURES
         </h1>
-        <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300" 
-        style={{ fontSize: '12px', backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#666', border: '1px solid #666', borderRadius: '10px', padding: '2px 10px', transition: 'background-color 0.3s ease' }} 
-           onMouseOver={(e) => { e.currentTarget.style.color = '#FFD700'; e.currentTarget.style.borderColor = '#FFD700'}} 
-           onMouseOut={(e) => { e.currentTarget.style.color = '#666'; e.currentTarget.style.borderColor = '#666'}}>
+        <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300"
+          style={{ fontSize: '12px', backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#666', border: '1px solid #666', borderRadius: '10px', padding: '2px 10px', transition: 'background-color 0.3s ease' }}
+          onMouseOver={(e) => { e.currentTarget.style.color = '#FFD700'; e.currentTarget.style.borderColor = '#FFD700' }}
+          onMouseOut={(e) => { e.currentTarget.style.color = '#666'; e.currentTarget.style.borderColor = '#666' }}>
           Logout
         </button>
       </div>
@@ -95,7 +110,7 @@ const HomePage = () => {
               onClick={() => setSelectedImage(image)}
             >
               <ImageWithExif
-                src={image.src}
+                src={"/media/" + image.src}
                 alt={image.alt}
                 exifData={image.exifData}
               />
@@ -111,7 +126,7 @@ const HomePage = () => {
                   )}
                   <div>{image.exifData.location}</div>
                 </div>
-                <div>{image.exifData.dateTaken ? new Date(image.exifData.dateTaken).toLocaleDateString() : ''}</div>
+                <div>{getLocaleDateStr(image)}</div>
               </div>
             </div>
           </div>
