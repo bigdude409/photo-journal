@@ -121,7 +121,7 @@ export function Lightbox({ image, onClose }: LightboxProps) {
             src={"/media/" + image.src}
             alt={image.alt}
             width={1200}
-            height={800}
+            height={900}
             className="max-h-[90vh] w-auto object-contain rounded-xl"
             onClick={(e) => e.stopPropagation()}
           />
