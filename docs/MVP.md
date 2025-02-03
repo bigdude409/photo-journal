@@ -9,7 +9,7 @@
 * Tailwind
 * GSAP
 * Mongodb
-* Node
+* Go for API
 
 ### Content
 
@@ -27,8 +27,8 @@
 * Home page showcase
 * EXIF data with photos
 * Exif overlay
-* Range finder loading overlay 
-* Aperture opening transition
+* ~~Range finder loading overlay~~
+* ~~Aperture opening transition~~
 * Histogram
 * Location info
 * Dynamic Color Schemes based on photos
@@ -40,7 +40,7 @@
 
 * Simple, Clean
 * Motion to attract not distract
-* Aperture blades loading screen on first visit
+* ~~Aperture blades loading screen on first visit~~
 
 
 ## Phase II
