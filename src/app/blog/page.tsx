@@ -38,21 +38,11 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      router.push('/login');
-      return;
-    }
-
     const fetchImages = async () => {
       try {
-        const userId = localStorage.getItem('userId'); // Assuming you store the email in localStorage
-        console.log('User ID:', userId);
-        const response = await fetch(`http:///${window.location.hostname}:3010/api/v1/user/media/${userId}`, {
+        const response = await fetch(`http:///${window.location.hostname}:3010/api/v1/media`, {
           method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
+          credentials: 'include', // Include cookies in the request
         });
 
         if (!response.ok) {
@@ -64,7 +54,6 @@ const HomePage = () => {
 
         if (Array.isArray(data[0].images)) {
           setBlogImages(data.map((item: { images: BlogImage[]; }) => item.images).flat());
-          // setBlogImages(data[0].images);
           console.log('Updated blogImages:', data[0].images);
         } else {
           console.error('Data.images is not an array:', data[0].images);
@@ -77,10 +66,24 @@ const HomePage = () => {
     fetchImages();
   }, [router]);
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken'); // Remove the token
-    localStorage.removeItem('userId'); // Remove the email
-    router.push('/login'); // Redirect to login
+  const handleLogout = async () => {
+    // Clear httpOnly cookies by calling the logout endpoint
+    try {
+      const logoutEndpoint = `http://${window.location.hostname}:3010/api/v1/user/logout`;
+      const response = await fetch(logoutEndpoint, {
+        method: 'POST',
+        credentials: 'include', // Necessary to include cookies
+      });
+
+      if (!response.ok) {
+        throw new Error('Logout failed');
+      }
+
+      // Redirect to login page after successful logout
+      router.push('/login');
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
   };
 
   useGSAP(() => {

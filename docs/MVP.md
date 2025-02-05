@@ -7,9 +7,15 @@
 * Next.js
 * React
 * Tailwind
-* GSAP
-* Mongodb
-* Go for API
+* Motion
+* MongoDB
+* Node.js/TypeScript for API
+* ReDoc for API docs
+* Testing framework (e.g. Jest)
+* MongoDB ORM (e.g. Mongoose)
+* Authentication (JWT)
+* Authorization (RBAC)
+* Caching (Redis)
 
 ### Content
 
@@ -27,8 +33,6 @@
 * Home page showcase
 * EXIF data with photos
 * Exif overlay
-* ~~Range finder loading overlay~~
-* ~~Aperture opening transition~~
 * Histogram
 * Location info
 * Dynamic Color Schemes based on photos
@@ -40,8 +44,6 @@
 
 * Simple, Clean
 * Motion to attract not distract
-* ~~Aperture blades loading screen on first visit~~
-
 
 ## Phase II
 

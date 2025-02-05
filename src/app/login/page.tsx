@@ -12,11 +12,11 @@ const LoginPage = () => {
     const router = useRouter();
 
     useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-            setIsLoggedIn(true);
-            router.push('/blog');
-        }
+        // const token = localStorage.getItem('authToken');
+        // if (token) {
+        //     setIsLoggedIn(true);
+        //     router.push('/blog');
+        // }
     }, [router]);
 
     // Redirect if logged in
@@ -39,6 +39,7 @@ const LoginPage = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ email: email, password: password }),
+                credentials: 'include', // Necessary to include cookies
             });
 
             if (!response.ok) {
@@ -47,12 +48,8 @@ const LoginPage = () => {
 
             const data = await response.json();
             console.log(data);
-            const token = data.token;
-            const userId = data.userId;
 
-            // Save the token for subsequent calls
-            localStorage.setItem('authToken', token);
-            localStorage.setItem('userId', userId);
+            // Assuming the server sets the authToken and userId in httpOnly cookies
             setIsLoggedIn(true);
         } catch (err) {
             if (err instanceof Error) {

@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     // Ensure the router is ready before navigating
     if (isAnimComplete) {
-      router.push('/blog');
+      router.push('/login');
     }
   }, [isAnimComplete, router]); // Include router.isReady in the dependency array
 
