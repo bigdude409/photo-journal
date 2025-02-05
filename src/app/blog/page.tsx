@@ -45,6 +45,11 @@ const HomePage = () => {
           credentials: 'include', // Include cookies in the request
         });
 
+        if (response.status === 401) {
+          router.push('/login');
+          return;
+        }
+
         if (!response.ok) {
           throw new Error('Failed to fetch images');
         }
