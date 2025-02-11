@@ -10,12 +10,12 @@
 * Motion
 * MongoDB
 * Node.js/TypeScript for API
-* ReDoc for API docs
+* ReDoc or Swagger for API docs
 * Testing framework (e.g. Jest)
 * MongoDB ORM (e.g. Mongoose)
 * Authentication (JWT)
-* Authorization (RBAC)
-* Caching (Redis)
+* Authorization (Role Based Access Control)
+* Caching (MongoDB In-Memory Storage Engine)
 
 ### Content
 
@@ -28,10 +28,20 @@
 
 ### Features
 
+* Stories and Photos.
+* Camera Settings
+*	Location and local time of day
+*	Before and after edits
+*	Download presets (Lightroom and Capture One)
+*	AI moderated content and comments
+*	AI generated stories based on photo uploads?
+*	AI generated categories
+* Multi-tenant website
+*	SEO optimized.
+* Photographers Gallery
+* Whole site home page with top rated/trending stories or photographers
 * Web and mobile
-* SEO optimized
 * Home page showcase
-* EXIF data with photos
 * Exif overlay
 * Histogram
 * Location info
@@ -39,6 +49,11 @@
 * Professional looking motion effects
 * Dark Mode/Light Mode toggle in header
 * Markdown for content
+* Content creation app
+*	Image Upload (original and final edit)
+*	upload presets
+*	Extract Exif Data
+*	Location and local time of day.
 
 ### Design
 
