@@ -62,10 +62,10 @@ const LoginPage = () => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: 'black' }}>
-            <h1 style={{ color: '#FFD700', fontFamily: 'inherit', marginBottom: '0px', fontSize: '4em', position: 'absolute', top: '10%' }}>Photo Journal</h1>
+            <h1 style={{ color: 'var(--text-color)', fontFamily: 'inherit', marginBottom: '0px', fontSize: '4em', position: 'absolute', top: '10%' }}>Photo Journal</h1>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                <div style={{ border: '1px solid #FFD700', borderRadius: '15px', padding: '10px', backgroundColor: '#444422' }}>
-                    <table style={{ color: '#FFD700', marginBottom: '0px' }}>
+                <div style={{ border: '1px solid var(--text-color)', borderRadius: '15px', padding: '10px', backgroundColor: '#444444' }}>
+                    <table style={{ color: 'var(--text-color)', marginBottom: '0px' }}>
                         <tbody>
                             <tr>
                                 <td style={{ textAlign: 'right', paddingRight: '10px' }}><h2>Email</h2></td>
@@ -79,9 +79,9 @@ const LoginPage = () => {
                                             width: '225px', // Increased width by 25px from 100px
                                             background: 'black',
                                             borderRadius: '5px',
-                                            border: '2px solid #FFD700',
+                                            border: '2px solid var(--text-color)',
                                             outlineColor: 'blue',
-                                            color: '#FFD700',
+                                            color: 'var(--text-color)',
                                             paddingLeft: '10px',
                                             fontFamily: 'inherit',
                                         }}
@@ -100,9 +100,9 @@ const LoginPage = () => {
                                             width: '225px', // Increased width by 25px from 200px
                                             background: 'black',
                                             borderRadius: '5px',
-                                            border: '2px solid #FFD700',
+                                            border: '2px solid var(--text-color)',
                                             outlineColor: 'blue',
-                                            color: '#FFD700',
+                                            color: 'var(--text-color)',
                                             paddingLeft: '10px',
                                             fontFamily: 'inherit',
                                         }}
@@ -116,8 +116,8 @@ const LoginPage = () => {
                                         onClick={handleLogin}
                                         style={{
                                             padding: '0px 20px',
-                                            border: '2px solid #FFD700',
-                                            color: '#FFD700',
+                                            border: '2px solid var(--text-color)',
+                                            color: 'var(--text-color)',
                                             background: 'transparent',
                                             borderRadius: '20px',
                                             cursor: 'pointer',

@@ -99,12 +99,12 @@ const HomePage = () => {
   return (
     <main className="min-h-screen p-8" style={{ backgroundColor: 'black' }}>
       <div className="flex justify-between items-center mb-8">
-        <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: '#FFD700' }}>
+        <h1 className="fade-in text-3xl font-normal ml-8 font-[family-name:var(--font-geist-sans)]" style={{ color: 'var(--text-color)' }}>
           SANTA BARBARA TRIP
         </h1>
         <button onClick={handleLogout} className="fade-in text-white hover:text-gray-300"
           style={{ fontSize: '12px', backgroundColor: 'rgba(0, 0, 0, 0.9)', color: '#666', border: '1px solid #666', borderRadius: '10px', padding: '2px 10px', transition: 'background-color 0.3s ease' }}
-          onMouseOver={(e) => { e.currentTarget.style.color = '#FFD700'; e.currentTarget.style.borderColor = '#FFD700' }}
+          onMouseOver={(e) => { e.currentTarget.style.color = 'var(--text-color)'; e.currentTarget.style.borderColor = 'var(--text-color)' }}
           onMouseOut={(e) => { e.currentTarget.style.color = '#666'; e.currentTarget.style.borderColor = '#666' }}>
           Logout
         </button>
@@ -123,13 +123,13 @@ const HomePage = () => {
                 exifData={image.exifData}
               />
             </div>
-            <div style={{ color: '#FFD700', fontSize: '14px' }} className="fade-in bottom-0 right-0 p-2 text-right text-white">
+            <div style={{ color: 'var(--text-color)', fontSize: '14px' }} className="fade-in bottom-0 right-0 p-2 text-right text-white">
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
 
                   {image.exifData.location && (
                     <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#FFD700" />
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="var(--text-color)" />
                     </svg>
                   )}
                   <div>{image.exifData.location}</div>

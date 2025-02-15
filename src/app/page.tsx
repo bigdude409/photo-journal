@@ -35,13 +35,13 @@ export default function Home() {
       ease: "elastic.out(1, 0.7)"
     }, "+=.3");
     tl.to(split.chars, {
-      color: "#887000", // Gold color, often used in stars title sequences
+      color: "var(--text-color-hover)",
       duration: .25,
       stagger: 0.05,
       // ease: "power4.in"
     }, "-=.5");
     tl.to(split.chars, {
-      color: "#FFD700", // Gold color, often used in stars title sequences
+      color: "var(--text-color)",
       duration: .25,
       stagger: 0.05,
       // ease: "power4.in"
@@ -82,7 +82,7 @@ export default function Home() {
           /> */}
 
           <h1
-            style={{ opacity: 1, textTransform: "uppercase", color: '#FFD700' }}
+            style={{ opacity: 1, textTransform: "uppercase", color: 'var(--text-color)' }}
             className="message text-4xl">Build What&apos;s Next...
           </h1>
 
