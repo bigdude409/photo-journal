@@ -107,12 +107,12 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <path fill="#FFD700" d="M21 6h-4.18C16.4 4.84 14.98 4 13.5 4c-1.48 0-2.9.84-3.32 2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7.5 11c-2.49 0-4.5-2.01-4.5-4.5S11.01 8 13.5 8s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5S12.12 15 13.5 15s2.5-1.12 2.5-2.5S14.88 10 13.5 10z" />
+                        <path fill="var(--text-color)" d="M21 6h-4.18C16.4 4.84 14.98 4 13.5 4c-1.48 0-2.9.84-3.32 2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h15c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7.5 11c-2.49 0-4.5-2.01-4.5-4.5S11.01 8 13.5 8s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7c-1.38 0-2.5 1.12-2.5 2.5S12.12 15 13.5 15s2.5-1.12 2.5-2.5S14.88 10 13.5 10z" />
                     </svg>
                     <text
                         x="20"
                         y="20"
-                        fill="#FFD700"
+                        fill="var(--text-color)"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="11"
                     // dominantBaseline="hanging"
@@ -133,7 +133,7 @@ export const ImageWithExif = ({ src, alt, exifData }: ImageWithExifProps) => {
                         x="50%"
                         y="100%"
                         width="100%"
-                        fill="#FFD700"
+                        fill="var(--text-color)"
                         fontFamily="var(--font-geist-mono)"
                         fontSize="12"
                         fontWeight="bold"
