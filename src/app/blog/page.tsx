@@ -40,7 +40,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch(`http:///${window.location.hostname}:3010/api/v1/media`, {
+        const response = await fetch(`http:///${window.location.hostname}:5000/api/v1/media`, {
           method: 'GET',
           credentials: 'include', // Include cookies in the request
         });
@@ -74,7 +74,7 @@ const HomePage = () => {
   const handleLogout = async () => {
     // Clear httpOnly cookies by calling the logout endpoint
     try {
-      const logoutEndpoint = `http://${window.location.hostname}:3010/api/v1/user/logout`;
+      const logoutEndpoint = `http://${window.location.hostname}:5000/api/v1/user/logout`;
       const response = await fetch(logoutEndpoint, {
         method: 'POST',
         credentials: 'include', // Necessary to include cookies

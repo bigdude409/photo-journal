@@ -31,7 +31,7 @@ const LoginPage = () => {
     }
 
     const handleLogin = async () => {
-        const authEndpoint = `http://${window.location.hostname}:3010/api/v1/user/login`;
+        const authEndpoint = `http://${window.location.hostname}:5000/api/v1/user/login`;
         try {
             const response = await fetch(authEndpoint, {
                 method: 'POST',

@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --text-color: #ffd700;
-  --text-color-hover: #ffef97;
+  --text-color: #40E0D0;
+  --text-color-hover: #b6faf4;
 }
 
 @media (prefers-color-scheme: dark) {
