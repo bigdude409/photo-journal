@@ -19,15 +19,15 @@
         * Voice
     * Spell and Grammar Check
 
-
 ## Layout
 * Single Column
 * 2 Column
 * Place Photos
 
 ## Publish
-* Auto save to drafts
+* Auto save drafts
 * Upload preview
+* AI content moderation
 * Go live
 * Post to Social Media
 
